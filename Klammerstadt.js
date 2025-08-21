@@ -58,11 +58,15 @@ function displayPuzzleText() {
 	let displayText = "";
 	let innerIndices = getInnerBracketIndices(puzzleText);
 	let lastEnd = 0;
-	innerIndices.forEach(([start, end]) => {
-		displayText += puzzleText.substring(lastEnd, start-1);
-		displayText += "<mark>" + puzzleText.substring(start, end+1) + "</mark>";
-		lastEnd = end;
-	});
+	if(innerIndices.length=0) {
+		displayText = puzzleText;
+	} else if {
+		innerIndices.forEach(([start, end]) => {
+			displayText += puzzleText.substring(lastEnd, start-1);
+			displayText += "<mark>" + puzzleText.substring(start, end+1) + "</mark>";
+			lastEnd = end;
+		});
+	}
 	puzzleTextField.innerHTML = displayText;
 }
 
